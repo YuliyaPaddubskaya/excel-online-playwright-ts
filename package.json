@@ -1,0 +1,25 @@
+{
+  "name": "excel-online-playwright-ts",
+  "version": "1.0.0",
+  "description": "E2E automation test for Excel Online TODAY() function using Playwright and TypeScript",
+  "scripts": {
+    "test": "playwright test",
+    "test:auth": "playwright test tests/auth.setup.ts",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --debug",
+    "report:html": "playwright show-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:clear": "rm -rf allure-results allure-report",
+    "allure:open": "allure open allure-report",
+    "test:allure": "npm run test && npm run allure:generate && npm run allure:open"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^26.5.0",
+    "dotenv": "^16.3.1",
+    "typescript": "^5.0.0",
+    "allure-commandline": "^2.43.0",
+    "allure-playwright": "^3.10.2"
+  }
+}

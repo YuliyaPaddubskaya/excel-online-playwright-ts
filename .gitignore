@@ -1,0 +1,16 @@
+node_modules/
+
+# Sensitivities
+.env
+.env.*
+!.env.example
+playwright/.auth/
+.auth/
+
+# Playwright reports and trace
+test-results/
+playwright-report/
+blob-report/
+.cache/
+allure-results/
+allure-report/
