@@ -44,10 +44,9 @@ npx playwright install chrome
 Environment Variables Configuration:
 Create a .env file in the root directory based on .env.example:
 
-Фрагмент кода
 MS_ACCOUNT_EMAIL="your-email@example.com"
 MS_ACCOUNT_PASSWORD="your-password"
-EXCEL_BASE_URL="[https://excel.new](https://excel.new)"
+
 🚀 Running Tests & Available Scripts
 All execution commands are wrapped in package.json scripts:
 

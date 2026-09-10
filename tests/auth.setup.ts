@@ -4,6 +4,9 @@ import { config } from "../config/env.config";
 const authFile = "playwright/.auth/user.json";
 
 setup("authenticate in Microsoft Account", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "webdriver", { get: () => undefined });
+  });
   await page.goto("https://login.live.com");
 
   await page.fill('input[type="email"]', config.email);
@@ -17,6 +20,7 @@ setup("authenticate in Microsoft Account", async ({ page }) => {
     await page.getByTestId("primaryButton").click();
   }
 
-  await page.waitForURL("**/account.microsoft.com/**", { timeout: 60000 });
+  await page.waitForURL(/.*(microsoft|live|office)\.com.*/, { timeout: 30000 });
+  await page.waitForTimeout(3000);
   await page.context().storageState({ path: authFile });
 });

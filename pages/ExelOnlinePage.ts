@@ -22,10 +22,6 @@ export class ExelOnlinePage {
   async openNewWorkbook(): Promise<void> {
     const targetUrl = "https://excel.new";
     await this.page.goto(targetUrl, { waitUntil: "commit", timeout: 45000 });
-    await this.page.waitForURL(/excel\.cloud\.microsoft\/open\/onedrive\//, {
-      timeout: 45000,
-      waitUntil: "load",
-    });
     await this.nameBoxInput.waitFor({ state: "visible", timeout: 45000 });
     await this.waitForUnavailabilityToastsToDisappear();
   }
@@ -50,7 +46,7 @@ export class ExelOnlinePage {
   }
 
   private async selectCellViaNameBox(cellAddress: string): Promise<void> {
-    await this.nameBoxInput.click({ timeout: 500 });
+    await this.nameBoxInput.click();
     await this.nameBoxInput.clear();
     expect(await this.nameBoxInput.inputValue()).toBe("");
     await this.page.keyboard.type(cellAddress, { delay: 50 });

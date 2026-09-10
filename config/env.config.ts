@@ -6,7 +6,6 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 export const config = {
   email: process.env.MS_ACCOUNT_EMAIL || "",
   password: process.env.MS_ACCOUNT_PASSWORD || "",
-  excelUrl: process.env.EXCEL_FILE_URL || "https://excel.new",
 };
 
 if (!config.email || !config.password) {
